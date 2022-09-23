@@ -40,6 +40,7 @@ namespace ConnectDBSQLServer.Pages
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+          //  динамическое отображение данных
             if (Visibility == Visibility.Visible)
             {
                 dbISP19AEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());

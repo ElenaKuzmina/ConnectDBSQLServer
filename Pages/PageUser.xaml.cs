@@ -30,12 +30,12 @@ namespace ConnectDBSQLServer.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            ClassFrame.frmObj.Navigate(new PageAddEdit());
+            ClassFrame.frmObj.Navigate(new PageAddEdit((sender as Button).DataContext as User));
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ClassFrame.frmObj.Navigate(new PageAddEdit());
+            ClassFrame.frmObj.Navigate(new PageAddEdit(null));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -25,11 +25,16 @@ namespace ConnectDBSQLServer.Pages
 
         private User _currentUser = new User();
 
-        public PageAddEdit()
-        {//создаем контекст
+        public PageAddEdit(User selectedUser)
+        {
+            InitializeComponent();
+
+            if (selectedUser != null)
+                _currentUser = selectedUser;
+            //создаем контекст
             DataContext = _currentUser;
 
-            InitializeComponent();
+           
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -45,11 +50,12 @@ namespace ConnectDBSQLServer.Pages
                 MessageBox.Show(error.ToString());
                 return;
             }
-            dbISP19AEntities.GetContext().User.Add(_currentUser);
+            if (_currentUser.ID == 0)
+                dbISP19AEntities.GetContext().User.Add(_currentUser);
             try
             {
                 dbISP19AEntities.GetContext().SaveChanges();
-                MessageBox.Show("Новый пользователь добавлен");
+                MessageBox.Show("Данные сохранены");
 
             }
             catch (Exception ex)

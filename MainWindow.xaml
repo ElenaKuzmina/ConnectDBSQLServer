@@ -1,0 +1,39 @@
+﻿<Window x:Class="ConnectDBSQLServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConnectDBSQLServer"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <!--<Image Source="/Resourses/Восьмерка.png"/>-->
+            <TextBlock Margin="10"
+                    FontSize="20pt" 
+                   FontFamily="TimesNewRoman"
+                   VerticalAlignment="Center"
+                   Text="Пример проекта">
+            </TextBlock>
+            <Button Margin="30"
+                    Name="BtnBack"
+                    Width="150"
+                    Height="30"
+                    Content="Вернуться"
+                    Click="BtnBack_Click"/>
+        </StackPanel>
+
+        <Frame Grid.Row="1"
+               Name="frmMain"
+               ContentRendered="frmMain_ContentRendered"
+               NavigationUIVisibility="Hidden">
+
+        </Frame>
+    </Grid>
+</Window>

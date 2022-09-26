@@ -25,7 +25,7 @@ namespace ConnectDBSQLServer.Pages
 
         private User _currentUser = new User();
 
-        public PageAddEdit(User selectedUser)
+        public PageAddEdit(User selectedUser) // в конструктор добавлен параметр типа User
         {
             InitializeComponent();
 
@@ -38,8 +38,9 @@ namespace ConnectDBSQLServer.Pages
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder error = new StringBuilder();
+            StringBuilder error = new StringBuilder(); //объект для сообщения об ошибке
 
+            //проверка полей объекта
             if (string.IsNullOrWhiteSpace(_currentUser.FirstName))
                 error.AppendLine("Укажите имя");
             if (string.IsNullOrWhiteSpace(_currentUser.LastName))
@@ -51,10 +52,10 @@ namespace ConnectDBSQLServer.Pages
             }
             //если пользователь новый
             if (_currentUser.ID == 0)
-                dbISP19AEntities.GetContext().User.Add(_currentUser);
+                dbISP19AEntities.GetContext().User.Add(_currentUser); //добавить в контекст
             try
             {
-                dbISP19AEntities.GetContext().SaveChanges();
+                dbISP19AEntities.GetContext().SaveChanges(); // сохранить изменения
                 MessageBox.Show("Данные сохранены");
 
             }

@@ -29,18 +29,18 @@ namespace ConnectDBSQLServer.Pages
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
+        {//переход на редактирование
             ClassFrame.frmObj.Navigate(new PageAddEdit((sender as Button).DataContext as User));
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
+        {//переход на добавление
             ClassFrame.frmObj.Navigate(new PageAddEdit(null));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-          //  динамическое отображение данных
+          //  динамическое отображение добавленных или измененных данных
             if (Visibility == Visibility.Visible)
             {
                 dbISP19AEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
@@ -49,7 +49,7 @@ namespace ConnectDBSQLServer.Pages
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
-        {
+        {// удаление нескольких пользователей
             var usersForRemoving = DGridUsers.SelectedItems.Cast<User>().ToList();
             if (MessageBox.Show($"Удалить {usersForRemoving.Count()} пользователей?", 
                 "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -60,7 +60,7 @@ namespace ConnectDBSQLServer.Pages
                     dbISP19AEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
                     DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
-                 }
+                }
                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());

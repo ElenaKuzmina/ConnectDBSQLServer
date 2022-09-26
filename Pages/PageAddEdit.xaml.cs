@@ -34,7 +34,6 @@ namespace ConnectDBSQLServer.Pages
             //создаем контекст
             DataContext = _currentUser;
 
-           
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -50,6 +49,7 @@ namespace ConnectDBSQLServer.Pages
                 MessageBox.Show(error.ToString());
                 return;
             }
+            //если пользователь новый
             if (_currentUser.ID == 0)
                 dbISP19AEntities.GetContext().User.Add(_currentUser);
             try

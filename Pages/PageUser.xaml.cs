@@ -47,5 +47,27 @@ namespace ConnectDBSQLServer.Pages
                 DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
             }
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var usersForRemoving = DGridUsers.SelectedItems.Cast<User>().ToList();
+            if (MessageBox.Show($"Удалить {usersForRemoving.Count()} пользователей?", 
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                     
+                try
+                {
+                    dbISP19AEntities.GetContext().User.RemoveRange(usersForRemoving);
+                    dbISP19AEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
+                 }
+               catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                    
+
+        }
     }
 }
+

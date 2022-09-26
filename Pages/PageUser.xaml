@@ -55,7 +55,8 @@
                 Content="Удалить" 
                 Margin="10"
                 Width="100"
-                Height="30"/>   
+                Height="30"
+                Click="BtnDelete_Click"/>   
         </StackPanel>
         
     </Grid>

@@ -11,10 +11,29 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <DataGrid Name="DGridUsers"
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Фильтр по логину"
+                       Height="30"
+                      Width="150"
+                       Margin="5"/>
+            <ComboBox Name="CmbFiltrLogin"
+                      Height="30"
+                      Width="150"
+                      Margin="5"
+                      SelectionChanged="CmbFiltrLogin_SelectionChanged"/>
+            <Button x:Name="BtnResetAll"
+                    Height="30"
+                      Width="150"
+                      Margin="5"
+                    Content="Сбросить"
+                    Click="BtnResetAll_Click"/>
+        </StackPanel>
+        <DataGrid Name="DGridUsers" Grid.Row="1"
                   AutoGenerateColumns="False"
                   IsReadOnly="True">
             <DataGrid.Columns>
@@ -31,6 +50,9 @@
                     <DataGridTextColumn
                         Header="Телефон" Width="*"
                         Binding="{Binding Phone}"/>
+                <DataGridTextColumn
+                        Header="Login" Width="*"
+                        Binding="{Binding Account.Login}"/>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -42,7 +64,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1"
+        <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
          <Button Name="BtnAdd" 

@@ -1,0 +1,9 @@
+ private static dbISP19AEntities _context; //приватное статичное поле контекст
+
+    
+        public static dbISP19AEntities GetContext()
+        {
+            if (_context == null)
+                _context = new dbISP19AEntities();
+            return _context;
+        }

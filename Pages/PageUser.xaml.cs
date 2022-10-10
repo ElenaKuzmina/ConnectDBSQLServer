@@ -26,6 +26,10 @@ namespace ConnectDBSQLServer.Pages
             InitializeComponent();
            DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
 
+            CmbFiltrLogin.ItemsSource = dbISP19AEntities.GetContext().Account.ToList();
+            CmbFiltrLogin.SelectedValuePath = "ID";
+            CmbFiltrLogin.DisplayMemberPath = "Login";
+           
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -67,6 +71,17 @@ namespace ConnectDBSQLServer.Pages
                 }
                     
 
+        }
+
+        private void CmbFiltrLogin_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {//фильтр по логину
+            int id = Convert.ToInt32(CmbFiltrLogin.SelectedValue);
+            DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.Where(x=>x.Login_ID == id).ToList();
+        }
+
+        private void BtnResetAll_Click(object sender, RoutedEventArgs e)
+        {//сброс фильтрации
+            DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
         }
     }
 }

@@ -29,11 +29,15 @@ namespace ConnectDBSQLServer.Pages
         {
             InitializeComponent();
 
+            CmbLogin.ItemsSource = dbISP19AEntities.GetContext().Account.ToList();
+            CmbLogin.SelectedValuePath = "ID";
+            CmbLogin.DisplayMemberPath = "Login";
+
             if (selectedUser != null)
                 _currentUser = selectedUser;
             //создаем контекст
             DataContext = _currentUser;
-
+            
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

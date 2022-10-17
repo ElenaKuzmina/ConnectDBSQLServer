@@ -20,6 +20,7 @@ namespace ConnectDBSQLServer.Classes
         public string Phone { get; set; }
         public string Adress { get; set; }
         public Nullable<int> Login_ID { get; set; }
+        public string Photo { get; set; }
     
         public virtual Account Account { get; set; }
     }

@@ -78,7 +78,13 @@
                 Margin="10"
                 Width="100"
                 Height="30"
-                Click="BtnDelete_Click"/>   
+                Click="BtnDelete_Click"/>
+            <Button Name="BtnToList" 
+                Content="Перейти к списку" 
+                Margin="10"
+                Width="100"
+                Height="30"
+                Click="BtnToList_Click"/>
         </StackPanel>
         
     </Grid>

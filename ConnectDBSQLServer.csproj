@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -102,6 +103,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageListUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +115,9 @@
   <ItemGroup>
     <Compile Include="Pages\PageAddEdit.xaml.cs">
       <DependentUpon>PageAddEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageListUser.xaml.cs">
+      <DependentUpon>PageListUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageUser.xaml.cs">
       <DependentUpon>PageUser.xaml</DependentUpon>
@@ -158,9 +166,61 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resourses\unnamed.jpg" />
+    <Resource Include="Resourses\АвдеевАЕ.jpg" />
+    <Resource Include="Resourses\АнисимовИА.jpg" />
+    <Resource Include="Resourses\АрхиповаДИ.jpg" />
+    <Resource Include="Resourses\БеляковМЭ.jpg" />
+    <Resource Include="Resourses\ВороноваМП.jpg" />
+    <Resource Include="Resourses\ГореловМИ.jpg" />
+    <Resource Include="Resourses\ГоршковДК.png" />
+    <Resource Include="Resourses\ГригорьеваПЗ.jpg" />
+    <Resource Include="Resourses\ГригорьевРК.jpg" />
+    <Resource Include="Resourses\ГусеваВД.png" />
+    <Resource Include="Resourses\ДаниловаЭВ.png" />
+    <Resource Include="Resourses\ЕгороваВН.png" />
+    <Resource Include="Resourses\ЕрмоловММ.jpg" />
+    <Resource Include="Resourses\ЕфремовАС.jpg" />
+    <Resource Include="Resourses\ЗиминаММ.jpg" />
+    <Resource Include="Resourses\КалининаАН.png" />
+    <Resource Include="Resourses\КирилловАФ.jpg" />
+    <Resource Include="Resourses\КиселевВГ.jpg" />
+    <Resource Include="Resourses\КозловКП.jpg" />
+    <Resource Include="Resourses\КондратьеваАА.png" />
+    <Resource Include="Resourses\КорнеевАК.jpg" />
+    <Resource Include="Resourses\КоролеваДМ.jpg" />
+    <Resource Include="Resourses\КоролевММ.png" />
+    <Resource Include="Resourses\КоротковаВГ.jpg" />
+    <Resource Include="Resourses\КрасноваПМ.png" />
+    <Resource Include="Resourses\КудрявцевФД.jpg" />
+    <Resource Include="Resourses\ЛебедеваЯМ.jpg" />
+    <Resource Include="Resourses\ЛеоновМК.jpg" />
+    <Resource Include="Resourses\ЛобановаТЕ.jpg" />
+    <Resource Include="Resourses\ЛосевНД.jpg" />
+    <Resource Include="Resourses\МайороваCC.jpg" />
+    <Resource Include="Resourses\МедведеваНА.png" />
+    <Resource Include="Resourses\МироновАД.jpg" />
+    <Resource Include="Resourses\НикитинАД.jpg" />
+    <Resource Include="Resourses\ПетроваВА.jpg" />
+    <Resource Include="Resourses\ПетроваВА.png" />
+    <Resource Include="Resourses\ПетроваОГ.jpg" />
+    <Resource Include="Resourses\ПономаревПД.png" />
+    <Resource Include="Resourses\СафроновДА.jpg" />
+    <Resource Include="Resourses\СеменоваВА.jpg" />
+    <Resource Include="Resourses\СмирновМГ.jpg" />
+    <Resource Include="Resourses\СоколовАА.jpg" />
+    <Resource Include="Resourses\СпиридоновДС.jpg" />
+    <Resource Include="Resourses\СычевГМ.jpg" />
+    <Resource Include="Resourses\ТерентьеваАИ.jpg" />
+    <Resource Include="Resourses\ТихомировМА.jpg" />
+    <Resource Include="Resourses\ФокинаАА.png" />
+    <Resource Include="Resourses\ФоминаЕД.png" />
+    <Resource Include="Resourses\ЩербаковЛД.png" />
+    <Resource Include="Resourses\ЩербаковСЕ.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

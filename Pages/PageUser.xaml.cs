@@ -83,6 +83,11 @@ namespace ConnectDBSQLServer.Pages
         {//сброс фильтрации
             DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
         }
+
+        private void BtnToList_Click(object sender, RoutedEventArgs e)
+        {
+            ClassFrame.frmObj.Navigate(new PageListUser());
+        }
     }
 }
 

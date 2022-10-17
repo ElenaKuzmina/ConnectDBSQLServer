@@ -15,7 +15,6 @@ namespace ConnectDBSQLServer.Classes
     
     public partial class dbISP19AEntities : DbContext
     {
-        private static dbISP19AEntities _context; //приватное статичное поле контекст
         public dbISP19AEntities()
             : base("name=dbISP19AEntities")
         {

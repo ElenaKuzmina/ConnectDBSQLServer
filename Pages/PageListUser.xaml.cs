@@ -28,5 +28,10 @@ namespace ConnectDBSQLServer.Pages
             var currentUser = dbISP19AEntities.GetContext().User.ToList();
             LViewUser.ItemsSource = currentUser;
         }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            ClassFrame.frmObj.Navigate(new PageAddEdit((sender as Button).DataContext as User));
+        }
     }
 }

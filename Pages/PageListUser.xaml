@@ -9,23 +9,27 @@
       Title="PageListUser">
 
     <Grid>
-        
-        <ListView  
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Column="1" 
                   Name="LViewUser">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="20"
                           Width="400">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="70"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
                         <Image Width="70"
-                               Grid.Row="1"
+                               Grid.Column="1"
                                Stretch="UniformToFill"
-                               HorizontalAlignment="Center"
+                               HorizontalAlignment="Left"
                                Margin="5">
                             <Image.Source>
                                 <Binding Path="Photo">
@@ -35,12 +39,25 @@
                                 </Binding>    
                             </Image.Source>
                         </Image>
-                        <TextBlock Grid.Row="0"
-                                   Text="{Binding LastName}"/>
-                        <TextBlock Grid.Row="2"
+                        <TextBlock Grid.Column="0"
+                                   Text="{Binding LastName}"
+                                   FontSize="16"
+                                     Margin="5"/>
+
+                        <TextBlock  Grid.Column="2"
+                                     FontSize="16"
+                                     Margin="5"
                                    Text="{Binding Phone}"/>
-                        <TextBlock Grid.Row="3"
-                                   Text="{Binding Adress}"/>
+                        <TextBlock  Grid.Column="3"
+                                   Text="{Binding Adress}"
+                                   FontSize="16"
+                                     Margin="5"/>
+                        <Button Name="BtnEdit"
+                                Click="BtnEdit_Click"
+                                Grid.Column="4"
+                                Width="150"
+                                Height="30"/>
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

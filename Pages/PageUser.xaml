@@ -37,7 +37,25 @@
                   AutoGenerateColumns="False"
                   IsReadOnly="True">
             <DataGrid.Columns>
-                
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="70"
+                               Grid.Column="1"
+                               Stretch="UniformToFill"
+                               HorizontalAlignment="Left"
+                               Margin="5">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>G:\2022-2023\МДК 01.01 ИСП.20А\ConnectDBSQLServer\Resourses\unnamed.jpg</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image> 
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                     <DataGridTextColumn
                         Header="Фамилия" Width="*"
                         Binding="{Binding FirstName}"/>

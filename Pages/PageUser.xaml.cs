@@ -47,7 +47,7 @@ namespace ConnectDBSQLServer.Pages
           //  динамическое отображение добавленных или измененных данных
             if (Visibility == Visibility.Visible)
             {
-                dbISP19AEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+               dbISP19AEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 DGridUsers.ItemsSource = dbISP19AEntities.GetContext().User.ToList();
             }
         }

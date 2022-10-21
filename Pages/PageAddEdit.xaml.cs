@@ -37,11 +37,13 @@ namespace ConnectDBSQLServer.Pages
                 _currentUser = selectedUser;
             //создаем контекст
             DataContext = _currentUser;
-            
+
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            
+
             StringBuilder error = new StringBuilder(); //объект для сообщения об ошибке
 
             //проверка полей объекта
@@ -60,7 +62,9 @@ namespace ConnectDBSQLServer.Pages
             try
             {
                 dbISP19AEntities.GetContext().SaveChanges(); // сохранить изменения
+               // dbISP19AEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 MessageBox.Show("Данные сохранены");
+                ClassFrame.frmObj.Navigate(new PageUser());
 
             }
             catch (Exception ex)

@@ -114,6 +114,7 @@ namespace ConnectDBSQLServer.Pages
             worksheet.Cells[3][indexRows] = "Имя";
             worksheet.Cells[4][indexRows] = "Адрес";
             worksheet.Cells[5][indexRows] = "Телефон";
+            //список пользователей
             var printItems = dbISP19AEntities.GetContext().User.ToList();
             //цикл по данным из таблицы
             foreach (var item in printItems)

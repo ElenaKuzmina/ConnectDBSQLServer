@@ -2,6 +2,7 @@
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,6 +146,39 @@ namespace ConnectDBSQLServer.Pages
             
             //показать Excel
             app.Visible = true;
+        }
+
+        private void BtnSaveToExcelTemplate_Click(object sender, RoutedEventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook wb = excelApp.Workbooks.Open($"{Directory.GetCurrentDirectory()}\\Шаблон.xlsx");
+            Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets[1];
+            ws.Cells[4, 2] = DateTime.Now.ToString();
+            ws.Cells[4, 5] = 7;
+            int indexRows = 6;
+            //ячейка
+            ws.Cells[1][indexRows] = "Номер";
+            ws.Cells[2][indexRows] = "Фамилия";
+            ws.Cells[3][indexRows] = "Имя";
+            ws.Cells[4][indexRows] = "Адрес";
+            ws.Cells[5][indexRows] = "Телефон";
+
+            //список пользователей из таблицы после фильтрации и поиска
+            var printItems = LViewUser.Items;
+            //цикл по данным из списка для печати
+            foreach (User item in printItems)
+            {
+                ws.Cells[1][indexRows + 1] = indexRows;
+                ws.Cells[2][indexRows + 1] = item.LastName;
+                ws.Cells[3][indexRows + 1] = item.FirstName;
+                ws.Cells[4][indexRows + 1] = item.Adress;
+                ws.Cells[5][indexRows + 1].Value = item.Phone.ToString();
+
+                indexRows++;
+            }
+            ws.Cells[indexRows + 2, 3] = "Подпись";
+            ws.Cells[indexRows + 2, 5] = "Кузьмина Е.Е.";
+            excelApp.Visible = true;
         }
     }
 }

@@ -114,8 +114,14 @@
                     Content="Печать в Excel"
                     Margin="5"
                     Width="130"
-                    Height="50"
+                    Height="30"
                     Click="BtnSaveToExcel_Click"/>
+            <Button Name="BtnSaveToExcelTemplate"
+                    Content="Печать в шаблон Excel"
+                    Margin="5"
+                    Width="130"
+                    Height="30"
+                    Click="BtnSaveToExcelTemplate_Click"/>
         </StackPanel>
         
     </Grid>

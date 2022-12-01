@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConnectDBSQLServer"
         mc:Ignorable="d"
-        Title="Главное окно" Height="550" Width="800">
+        Title="Главное окно" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
             
         </Grid.RowDefinitions>
